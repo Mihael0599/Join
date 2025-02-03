@@ -1,0 +1,279 @@
+* {
+  margin: 0;
+  font-family: inter;
+}
+
+body {
+  background-color: #f6f7f8;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 35px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hero {
+  align-items: center;
+  height: 100vh;
+}
+
+.login-window {
+  width: 652px;
+  height: 451px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px;
+  border-radius: 30px;
+  padding: 32px 0;
+  box-shadow: 0px 0px 14px 3px #0000000a;
+}
+
+.login-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 21px;
+}
+
+.login-btn {
+  height: 51px;
+  width: 180px;
+  color: white;
+  background-color: #2a3647;
+  border: solid #2a3647;
+  border-radius: 10px;
+  font-size: 21px;
+}
+
+.signup-btn {
+  height: 49px;
+  width: 91px;
+  color: white;
+  background-color: #2a3647;
+  border: solid #2a3647;
+  border-radius: 8px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guest-login {
+  height: 51px;
+  width: 180px;
+  border: solid 1px #2a3647;
+  background-color: #ffffff;
+  border-radius: 10px;
+  font-size: 21px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 42px;
+  height: 35px;
+  width: 246px;
+  padding-bottom: 40px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #a8a8a8;
+  font-weight: 400;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  background-image: url("../Assets/Join_logo.png");
+  /* Replace with your logo path */
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: moveLogo 2s ease-out forwards;
+}
+
+.signup-container-mobile {
+  padding-top: 77px;
+  height: 49px;
+  width: 292px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 35px;
+}
+
+.signup-btn a {
+  color: white;
+}
+
+.animation {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #f6f7f8;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-img {
+  position: absolute;
+  height: 122px;
+  width: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: mymove 1s linear forwards;
+}
+
+.welcome-img-mobile {
+  position: absolute;
+  display: none;
+  height: 100px;
+  width: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: mymoveMobile 1s linear forwards;
+}
+
+@keyframes mymove {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    top: 10%;
+    left: 6%;
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutBackground {
+  0% {
+    background-color: #f6f7f8;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes mymoveMobile {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    top: 5%;
+    left: 6.5%;
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutBackgroundMobile {
+  0% {
+    background-color: #2a3647;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 830px) {
+  .welcome-img {
+    display: none;
+  }
+
+  .welcome-img-mobile {
+    display: block;
+    animation: mymoveMobile 1s linear forwards;
+  }
+
+  .animation {
+    animation: fadeOutBackgroundMobile 1s forwards;
+  }
+}
+
+@media (min-width: 831px) {
+  .animation {
+    animation: fadeOutBackground 1s forwards;
+  }
+}
+
+@media (max-width: 680px) {
+  header {
+    padding: 38px 37px;
+  }
+
+  .login-logo {
+    height: 78px;
+    width: 64px;
+  }
+
+  .signup-container {
+    display: none;
+  }
+
+  .signup-container-mobile {
+    display: flex;
+  }
+
+  .login-window {
+    width: calc(100% - 32px);
+  }
+
+  .welcome-img {
+    display: none;
+  }
+
+  .welcome-img-mobile {
+    display: block;
+    height: 78px;
+    width: 64px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: mymoveMobile 1s linear forwards;
+  }
+
+  .animation {
+    background-color: #2a3647;
+    animation: fadeOutBackgroundMobile 1s forwards;
+  }
+}
+
+@media (max-width: 500px) {
+  .login-signup-container {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+}

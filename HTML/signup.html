@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="icon" type="image/x-icon" href="../Assets/favIcon.png" />
+  <link rel="stylesheet" href="../CSS/signup.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <title>Join</title>
+  <body>
+    <header>
+      <img class="login-logo" src="../Assets/Join_logo_blue.png" alt="" />
+    </header>
+
+    <div class="hero">
+      <div class="signup-window">
+        <div class="arrow-sigup-container">
+          <a href="../index.html"
+            ><img class="arrow" src="../Assets/arrow-left-line.png" alt=""
+          /></a>
+          <div class="login-title">
+            <h1>Sign up</h1>
+            <hr width="88px" color="#29ABE2" size="3" />
+          </div>
+        </div>
+        <form onchange="checkName()" oninput="allowSignup()" onsubmit="addUser(); return false;">
+          <div class="input-box">
+            <input oninput="checkName()" type="text" id="name" placeholder="Name" required />
+            <img class="input-img" src="../Assets/person.png" alt="" />
+            <div class="erorr-msg" id="name-error"></div>
+          </div>
+          <div class="input-box">
+            <input onchange="checkEmail()" type="email" id="email" placeholder="Email" required />
+            <img class="input-img" src="../Assets/mail (1).png" alt="" />
+            <div class="erorr-msg" id="email-error"></div>
+          </div>
+          <div class="input-box">
+            <input onchange="checkPassword()" oninput="changePasswordImg()" type="password" id="password" placeholder="Password" required/>
+            <img class="input-img" onclick="showPassword()" id="show-password-img" src="../Assets/lock.png" alt=""/>
+            <div class="erorr-msg" id="password-error"></div>
+          </div>
+          <div class="input-box">
+            <input onchange="checkRepeatPassword()" oninput="changeRepeatPasswordImg()" type="password" id="repeat-password" placeholder="Confirm Password" required/>
+            <img class="input-img" onclick="showRepeatPassowrd()" id="show-repeat-password-img" src="../Assets/lock.png" alt=""/>
+            <div class="erorr-msg" id="repeat-password-error"></div>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" name="" id="checkbox" required />
+            <h4>
+              I accept the
+              <a href="../HTML/privacy-policy.html">Privacy policy</a>
+            </h4>
+          </div>
+          <div class="login-signup-container">
+            <button type="submit" id="signup" class="signup-btn" disabled>Sign up</button>
+          </div>
+        </form>
+      </div>
+      <footer>
+        <a href="../HTML/privacy-policy.html">Privacy Policy</a>
+        <a href="../HTML/legal-notice.html">Legal notice</a>
+      </footer>
+      <div class="overlay-msg" id="signup-msg">
+        <div class="msg-box" id="msgBox">You signed up sucsessfuly</div>
+      </div>
+    </div>
+    <script src="../script.js"></script>
+    <script src="../JS/signup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+#header {
+  height: 80px;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-shadow: 0px 4px 4px 0px #0000001a;
+  justify-content: space-between;
+  position: sticky;
+  top: -1px;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+}
+
+.header-logo {
+  height: 39px;
+  width: 32px;
+}
+
+.user-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border: solid 2px #2a3647;
+}
+
+#header-center {
+  display: none;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.header-right-logged-out {
+  display: none;
+}
+
+.header-right-logged-in {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#help-button {
+  display: none;
+  padding-right: 16px;
+}
+
+/* User-Button Menue */
+.usr-menu-box {
+  background-color: #2A3647;
+  color: #CDCDCD;
+  text-decoration: none;
+  border-radius: 20px 0px 20px 20px;
+  padding: 18px 10px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 96px;
+  right: 10px;
+  transition: all 250ms ease-in-out;
+  box-shadow: 0px 0px 4px 0px #0000001A;
+  z-index: 2;
+  gap: 8px;
+}
+
+.usr-menu-closed {
+  transform: translateX(calc(100% + 14px));
+}
+
+.usr-menu-button {
+  color: #CDCDCD;
+  background-color: #2a364700;
+  border: unset;
+  display: flex;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.usr-menu-button:hover {
+  color: white;
+}
+
+.ar-overlay-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  z-index: 1;
+}
+
+.ar-overlay-closed {
+  display: unset;
+}
+
+@media screen and (min-width: 830px) {
+  #usr-menu-help-button {
+    display: none;
+  }
+
+  #header-center {
+    display: unset;
+  }
+
+  #header {
+    justify-content: space-between !important;
+  }
+}
+
+@media screen and (min-width: 830px) {
+  #header-left {
+    display: none;
+  }
+
+  #header {
+    position: sticky;
+    height: 96px;
+    box-shadow: none;
+    padding: 20px 40px 20px 116px;
+    box-shadow: 0px 4px 4px 0px #0000001a;
+    justify-content: flex-end;
+  }
+
+  #help-button {
+    display: unset;
+  }
+
+  .user-button {
+    height: 56px;
+    width: 56px;
+    border: solid 3px #2A3647;
+  }
+
+  #help-button-usr-menu {
+    display: none;
+  }
+}

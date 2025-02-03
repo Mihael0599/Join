@@ -1,0 +1,243 @@
+.menu-logged-in {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.menu-logged-out {
+  display: none;
+}
+
+#nav-bar {
+  position: sticky;
+  bottom: 0;
+  background: #2a3647;
+  color: #cdcdcd;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+}
+
+.frame-nav-bar-logged-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.frame-nav-bar-logged-out {
+  display: flex;
+  justify-content: space-between;
+}
+
+.legal-documents-logged-in {
+  display: none;
+  padding-bottom: 64px;
+}
+
+.legal-documents-logged-out {
+  display: flex;
+  gap: 4px;
+}
+
+.legal-documents-logged-out .nav-button {
+  width: 100%;
+  padding: 8px;
+}
+
+.log-in-logged-in {
+  display: none;
+}
+
+#logo-nav-bar {
+  display: none;
+  padding: 64px 0;
+}
+
+#logo-nav-bar svg {
+  height: 122px;
+}
+
+.nav-button {
+  background-color: unset;
+  border: none;
+  padding: unset;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  height: 76px;
+  transition: color 0.3s, fill 0.3s;
+  color: #cdcdcd;
+  font-size: 14px;
+  border-radius: 16px;
+}
+
+#summary-button:hover #summary-img {
+  background-image: url(../Assets/img/summary_w_L.png);
+}
+
+#board-button:hover #board-img {
+  background-image: url(../Assets/img/board_w_L.png);
+}
+
+#add-task-button:hover #add-task-img {
+  background-image: url(../Assets/img/add-task_w_L.png);
+}
+
+#contacts-button:hover #contacts-img {
+  background-image: url(../Assets/img/contacts_w_L.png);
+}
+
+#log-in-button:hover #log-in-img {
+  background-image: url(../Assets/img/log-in_w_L.png);
+}
+
+.nav-button:hover {
+  background-color: #091931;
+  color: white;
+}
+
+.nav-button-img {
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+}
+
+#summary-img {
+  background-image: url(../Assets/img/summary_g_L.png);
+}
+
+#board-img {
+  background-image: url(../Assets/img/board_g_L.png);
+}
+
+#add-task-img {
+  background-image: url(../Assets/img/add-task_g_L.png);
+}
+
+#contacts-img {
+  background-image: url(../Assets/img/contacts_g_L.png);
+}
+
+#log-in-img {
+  background-image: url(../Assets/img/log-in_g_L.png);
+}
+
+@media screen and (min-width: 382px) {
+  .menu-logged-in {
+    padding: 2px 2px;
+    gap: 10px;
+  }
+
+  .frame-nav-bar-logged-out {
+    padding: 0 16px;
+  }
+}
+
+@media screen and (min-width: 830px) {
+  #menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #nav-bar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+  }
+
+  .nav-button {
+    width: 232px;
+    height: 46px;
+    display: flex;
+    flex-direction: unset;
+    gap: 8px;
+    border-radius: unset;
+  }
+
+  .nav-button-img {
+    width: 32px;
+    height: 32px;
+    background-size: 32px;
+    justify-content: center;
+  }
+
+  .nav-button p {
+    width: 80px;
+    display: flex;
+    justify-content: start;
+    font-size: 16px;
+  }
+
+  .nav-button:hover {
+    border-radius: unset;
+  }
+
+  #logo-nav-bar {
+    display: flex;
+    justify-content: center;
+  }
+
+  #legal-documents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  #legal-documents p {
+    padding-left: 52px;
+    width: 100%;
+  }
+
+  .footer-button {
+    padding: unset;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+
+    align-items: center;
+    width: 100%;
+    height: 76px;
+    transition: color 0.3s, fill 0.3s;
+  }
+
+  .footer-button-frame {
+    display: flex;
+    justify-content: center;
+    flex-direction: unset;
+    align-items: start;
+    height: 76px;
+    width: calc(232 - (2 * 53));
+  }
+
+  .footer-button svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .frame-nav-bar-logged-out {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 0 64px;
+    height: 100%;
+  }
+
+  .frame-nav-bar-logged-in {
+    padding: 0 0 64px;
+  }
+
+  .legal-documents-logged-out .nav-button {
+    width: 232px;
+  }
+}

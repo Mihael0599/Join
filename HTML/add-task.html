@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="../Assets/favIcon.png" />
+
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <link rel="stylesheet" href="../CSS/nav-bar.css" />
+    <link rel="stylesheet" href="../CSS/add-task.css" />
+
+    <script src="../script.js"></script>
+    <script src="../JS/nav-bar.js"></script>
+    <script src="../JS/header.js"></script>
+
+    <title>Summary</title>
+  </head>
+  <body id="body" onload="userCheck()">
+    <div id="frame">
+      <div id="main-container">
+        <div id="header" w3-include-html="../HTML/header.html"></div>
+        <div id="main-content">
+          <div class="hero">
+            <div>
+            <div class="title-arrow">
+              <h1>Add Task</h1>
+            </div>
+            <div class="form-container">
+              <div class="form-left">
+                <div class="input-containers">
+                  <p>Title<span>*</span></p>
+                  <input class="title-input" type="text" placeholder="Enter a title" id="title-input" onchange="clearTitleError()"/>
+                  <div class="erorr-msg" id="title-error"></div>
+                </div>
+                <div class="input-containers">
+                  <p>Description<span>*</span></p>
+                  <textarea class="description-input" placeholder="Enter a Description" id="description" onchange="clearDescriptionError()"></textarea>
+                  <div class="erorr-msg description-error" id="description-error"></div>
+                </div>
+                <div class="input-containers" id="input-contacts">
+                  <p>Assigned to</p>
+                  <div onclick="openDropDownMenuUser(), addUserToTask()" class="drop-down">
+                    <div>Select contacts to assign</div>
+                    <div>
+                      <img class="drop-down-arrow" id="drop-down-arrow-contacts" src="../Assets/arrow_drop_downaa (1).png" alt="Arrow down"/>
+                    </div>
+                  </div>
+                  <div class="contact-list-container" id="contact-list"></div>
+                  <div id="addedUers"></div>
+                </div>
+              </div>
+              <hr />
+              <div class="form-right">
+                <div class="input-containers">
+                  <p>Due date<span>*</span></p>
+                  <input class="date-input" type="date" id="date-input" onchange="clearDateError()"/>
+                  <div class="erorr-msg" id="date-error"></div>
+                </div>
+                <div class="prio-container">
+                  <p>Prio</p>
+                  <div class="prio-btn-container" id="prio-container">
+                    <button onclick="changeColorPrioBtn('urgent')" id="btn-urgent" class="btn-prio-urgent">Urgent<img id="urgent-img" src="../Assets/prio_urgent.png" alt="Urgent"/></button>
+                    <button onclick="changeColorPrioBtn('medium')" id="btn-medium" class="btn-prio-medium">Medium<img id="medium-img" src="../Assets/prio_medium.png" alt="Medium"/></button>
+                    <button onclick="changeColorPrioBtn('low')" id="btn-low" class="btn-prio-low">Low<img id="low-img" src="../Assets/prio_low.png" alt="Low"/></button>
+                  </div>
+                </div>
+                <div class="input-containers" id="input-category">
+                  <p>Category<span>*</span></p>
+                  <div class="drop-down" onclick="openDropDownMenuCategory()">
+                    <div id="selected-category">Select task category</div>
+                      <img class="drop-down-arrow" id="drop-down" src="../Assets/arrow_drop_downaa (1).png" alt="Arrow down"/>
+                      <div class="erorr-msg category-error" id="category-error"></div>
+                  </div>
+                  <div class="category-options hidden" id="categorySelect">
+                    <div onclick="selectCategory('Technical Task')">
+                      Technical Task
+                    </div>
+                    <div onclick="selectCategory('User Story')">User Story</div>
+                  </div>
+                </div>
+                <div class="input-containers">
+                  <p>Subtasks</p>
+                  <div class="subtask-container">
+                    <input oninput="toggleButtonVisibility()" class="subtask-input" type="text" placeholder="Add new subtask" id="newSubtask"/>
+                    <img onclick="toggleButtonVisibility(true)" id="plusButton" class="plus-img" src="../Assets/Subtasks +.png" alt=""/>
+                    <button class="add-subtask" id="confirmButton" onclick="addSubtask()"><img src="../Assets/check_blue.png" alt="" /></button>
+                    <span class="linie" id="linie" onclick="cancelSubtask()">|</span>
+                    <button class="cancle-subtask" id="cancelButton" onclick="cancelSubtask()"><img src="../Assets/iconoir_cancel.png" alt="" /></button>
+                  </div>
+                  <div id="subtaskLabels" class="subtask-label-container"></div>
+                  <p class="required">This field is required<span>*</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="add-clear-task">
+              <div>
+                <p>This field is required<span>*</span></p>
+              </div>
+              <div class="clear-addTask-container">
+                <button onclick="clearTask()" class="clear-btn">Clear <img src="../Assets/iconoir_cancel.png" alt=""/></button>
+                <button onclick="checkAddTaks()" class="creatTask-btn">Creat Task <img src="../Assets/check.png" alt=""/></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="overlay-msg" id="add-task-msg">
+        <div class="msg-box" id="msgBox">You added task sucsessfuly</div>
+      </div>
+      <div id="nav-bar" w3-include-html="../HTML/nav-bar.html"></div>
+      <script src="../JS/add-task-subtask.js"></script>
+      <script src="../JS/add-task.js"></script>
+      <script src="../JS/add-task-prio.js"></script>
+      <script src="../JS/template.js"></script>
+    </div>
+  </body>
+</html>
+
+

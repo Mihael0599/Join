@@ -1,0 +1,633 @@
+.prio-btn-container {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    justify-content: center;
+    gap: 12px;
+  }
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+  }
+  
+  .drop-down {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .subtask-container {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+  
+  .subtask-label-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .subtasks-label {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    word-wrap: break-word;
+  }
+  
+  .subtusk-input {
+    padding: 10px 21px;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    color: #000000;
+    resize: none;
+    outline: none;
+    width: 100%;
+    position: relative;
+  }
+  
+  .plus-img {
+    position: absolute;
+    right: 21px;
+    transform: translateY(-50%);
+    top: 50%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .imgContainer {
+    position: absolute;
+    right: 21px;
+    transform: translateY(-50%);
+    top: 50%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cancle-subtask {
+    display: none;
+    border: none;
+    background-color: white;
+  }
+  
+  .add-subtask {
+    display: none;
+    border: none;
+    background-color: white;
+  }
+  
+  .linie {
+    display: none;
+  }
+  
+  .close-edit {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  .close-button-edit {
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .save-edit {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  .btnPrimary {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 48px;
+    font-weight: 700;
+    font-size: 21px;
+    border-radius: 8px;
+    color: #ffffff;
+    background-color: #2a3647;
+    padding: 15px 24px;
+    border: 0px;
+    gap: 4px;
+    transition: background-color 100ms ease-in-out, transform 100ms ease-in-out;
+  }
+  
+  .btnPrimary:hover {
+    font-weight: 700;
+    font-size: 21px;
+    border-radius: 8px;
+    border: 0px;
+    color: #ffffff;
+    background-color: #29abe2;
+    padding: 15px 24px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #2a3647;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #a8a8a8;
+    border-radius: 10px;
+  }
+  
+  .modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-body {
+    position: relative;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .modal-close:hover {
+    color: black;
+  }
+  
+  .btn-add-task {
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+  }
+  
+  .btn-add-task:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal-container {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .modal-body {
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  .contact-list-container {
+    max-height: 160px;
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 8px;
+  }
+  
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+  }
+  
+  .user-contact{
+    display: flex;
+    align-items: center;
+  }
+  
+  .added-users {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+  .priority-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .priority-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: white;
+  }
+  
+  .add-subtask-container {
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .subtask-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+  .images-container img{
+    height: 17px;
+  }
+  
+  .subtask-items{
+    display: flex;
+    width: 100%;
+    position: relative;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+  .subtask-edit-items{
+    display: flex;
+    width: 100%;
+    position: relative;
+    padding: 12px;
+  }
+  .subtask-edit-items :focus{
+    border-bottom: 1px solid #29abe2 !important;
+    padding-bottom: 11px;
+    border: none; 
+  }
+  .edit-delete-subtask{
+    border: none;
+    background-color: white;
+    position: absolute;
+    right: 17px;
+  }
+  .edit-pen-subtask{
+    border: none;
+    background-color: white;
+    position: absolute;
+    right: 50px;
+  }
+  .linie-subtask{
+    position: absolute;
+    right: 42px;
+    color: black;
+  }
+  
+  .subtask-text-input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .remove-subtask-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .add-subtask {
+    position: absolute;
+    right: 16px;
+    bottom: 5px;
+  }
+  
+  .linie {
+    display: none;
+    position: absolute;
+    right: 44px;
+    color: #d1d1d1;
+    bottom: 11px;
+  }
+  
+  .cancel-subtask {
+    display: none;
+    border: none;
+    background-color: white;
+    position: absolute;
+    right: 50px;
+    bottom: 5px;
+  }
+  
+  .subtask-input {
+    height: 40px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    padding-left: 21px;
+    width: 100%;
+  }
+  
+  .subtask {
+    display: flex;
+    justify-content: space-between;
+    width: 360px;
+  }
+  
+  .subtask-label-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .subtask-label {
+    padding: 5px 30px;
+    border-radius: 15px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-around;
+    word-wrap: break-word;
+    width: 100%;
+  }
+  
+  .subtask-label button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  .images-container {
+    display: none;
+    display: flex;
+    margin-left: 2px;
+    gap: 12px;
+  }
+  
+  .subtask-label:hover .images-container {
+    display: flex;
+  }
+  
+  .subtask-label:hover {
+    background-color: rgba(128, 128, 128, 0.151);
+  }
+  
+  .subtask-label:hover input {
+    background-color: rgba(128, 128, 128, 0);
+  }
+  
+  .subtask-label input {
+    border: none;
+    background-color: #f6f7f8;
+    width: 70%;
+  }
+  
+  .prio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn-prio-urgent {
+    height: 41px;
+    width: 121px;
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 0px 0px 4px 0px #0000001a;
+    border-radius: 8px;
+  }
+  
+  .btn-prio-medium {
+    height: 41px;
+    width: 121px;
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 0px 0px 4px 0px #0000001a;
+    border-radius: 8px;
+  }
+  
+  .btn-prio-low {
+    height: 41px;
+    width: 121px;
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 0px 0px 4px 0px #0000001a;
+    border-radius: 8px;
+  }
+  
+  .prio-btn-container .active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+  
+  .prio-btn-container button:hover {
+    opacity: 0.8;
+  }
+  
+  .date-input {
+    height: 40px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    padding: 0 21px;
+  }
+  
+  .input-containers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 396px;
+    padding-bottom: 16px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .description-input {
+    height: 88px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    padding: 18px 21px;
+    font-size: 16px;
+  }
+  
+  input.title-input,
+  textarea.description-input {
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  input.title-input:focus,
+  textarea.description-input:focus {
+    border: 1px solid #29abe2;
+  }
+  
+  .add-task-board:hover {
+    background-color: #29abe2;
+  }
+  
+  textarea.description-input {
+    resize: none;
+    height: 80px;
+  }
+  
+  .title-input {
+    height: 40px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    padding-left: 21px;
+  }
+  
+  .okTask-btn {
+    height: 56px;
+    width: 100px;
+    color: white;
+    background-color: #2a3647;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 21px;
+  }
+  
+  .okTask-btn:hover {
+    background-color: #29abe2;
+  }
+  
+  .input-containers p {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .no-tasks {
+    color: #c7c7c7;
+    font-style: italic;
+    display: block;
+  }
+  
+  .remaining-users-circle {
+    background-color: red;
+  }
+  
+  .subtask-text{
+    overflow-wrap: anywhere;
+    padding-left: 4px;
+    max-width: 350px;
+  }
+  
+  .contact.checked {
+    background-color: #2A3647;
+    color: white;
+    margin-bottom: 5px;
+    padding: 6px;
+    border-radius: 8px;
+  }
+  
+  .hero{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 180px;
+    background-color: #2d3e502a;
+    width: calc(100% - 180px);
+    height: 100vh;
+    padding-left: 0 !important;
+    z-index: 1000;
+    padding-right: 100px;
+  }
+  .addtask-overlay{
+    background-color: white;
+    border-radius: 30px;
+    width: 1110px;
+    padding: 30px;
+  }
+  .icons-show{
+    display: none;
+  }
+  .subtask-items:hover{
+    .icons-show{
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  .subtask-add-items{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+  
+  .subtask-add-items:hover{
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    .icons-show{
+      background-color:  #f3f3f3;
+    }
+    .edit-delete-subtask{
+      background-color:  #f3f3f3;
+    }
+    .edit-pen-subtask{
+      background-color:  #f3f3f3;
+    }
+    .linie-subtask{
+      background-color:  #f3f3f3;
+    }
+  }
+  
+  .msg-container{
+    position: absolute;
+    top: 50%;
+  }

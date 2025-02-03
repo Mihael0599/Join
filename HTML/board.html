@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="../Assets/favIcon.png" />
+
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../CSS/header.css" />
+  <link rel="stylesheet" href="../CSS/nav-bar.css" />
+  <link rel="stylesheet" href="../CSS/board.css" />
+  <link rel="stylesheet" href="../CSS/header.css" />
+  <link rel="stylesheet" href="../CSS/addtaskOverlay.css" />
+  <link rel="stylesheet" href="../CSS/responsive-board.css" />
+  <link rel="stylesheet" href="../CSS/assets-board.css" />
+  
+
+  <script src="../script.js"></script>
+  <script src="../JS/board.js"></script>
+  <script src="../JS/nav-bar.js"></script>
+  <script src="../JS/header.js"></script>
+  <script src="../JS/template.js"></script>
+  <script src="../JS/edit-task.js"></script>
+  <script src="../JS/edit-task-subtask.js"></script>
+  <script src="../JS/edit-task-user.js"></script>
+  <script src="../JS/open-task.js"></script>
+  <script src="../JS/template-board.js"></script>
+
+    <title>Board</title>
+  </head>
+  <body id="body" onload="userCheck()">
+    <div id="frame">
+      <div id="main-container">
+        <div id="header" w3-include-html="../HTML/header.html"></div>
+        <div class="board-container">
+          <div class="header-board hidden" id="sectionBoard">
+            <div class="section">
+              <h1>Board</h1>
+              <div id="add-task-mobile" onclick="openInputPage('todo')" class="add-task-board">
+                +
+              </div>
+            </div>
+            <div class="search-container">
+              <input
+                type="text"
+                id="search"
+                placeholder="Find Task"
+                oninput="searchFromSearchInput()"/>
+              <img
+                class="search-icon"
+                src="../Assets/search.png"
+                alt="search-icon"/>
+            </div>
+          </div>
+          <div class="header-board" id="sectionBoardPlus">
+            <h1>Board</h1>
+            <div class="section-board">
+              <div class="search-container">
+                <input
+                  type="text"
+                  id="searchTask"
+                  placeholder="Find Task"
+                  oninput="searchFromSearchTaskInput()"/>
+                <img
+                  class="search-icon"
+                  src="../Assets/search.png"
+                  alt="search-icon"/>
+              </div>
+
+              <div onclick="openInputPage('todo')" class="add-task-board-plus">
+                + Add Task
+              </div>
+            </div>
+          </div>
+
+          <div class="board">
+            <div
+              class="column"
+              id="todo"
+              ondragover="allowDrop(event)"
+              ondrop="handleDrop(event)">
+              <div class="column-header">
+                <h2>To Do</h2>
+                <button onclick="openInputPage('todo')" class="add-task">
+                  +
+                </button>
+              </div>
+              <div class="task-list" id="taskList">
+                <div class="no-tasks">No tasks To do</div>
+              </div>
+              <div class="task-container" id="todo-tasks"></div>
+            </div>
+            <div
+              class="column"
+              id="in-progress"
+              ondragover="allowDrop(event)"
+              ondrop="handleDrop(event)">
+              <div class="column-header">
+                <h2>In Progress</h2>
+                <button onclick="openInputPage('in-progress')" class="add-task">
+                  +
+                </button>
+              </div>
+              <div class="task-list">
+                <div class="no-tasks">No tasks In progress</div>
+              </div>
+              <div
+                class="task-container in-progress"
+                id="in-progress-tasks">
+              </div>
+            </div>
+            <div
+              class="column"
+              id="await-feedback"
+              ondragover="allowDrop(event)"
+              ondrop="handleDrop(event)">
+              <div class="column-header">
+                <h2>Await Feedback</h2>
+                <button
+                  onclick="openInputPage('await-feedback')"
+                  class="add-task">
+                  +
+                </button>
+              </div>
+              <div class="task-list">
+                <div class="no-tasks">No tasks Await feedback</div>
+              </div>
+              <div
+                class="task-container await-feedback"
+                id="await-feedback-tasks"
+              ></div>
+            </div>
+            <div
+              class="column"
+              id="done"
+              ondragover="allowDrop(event)"
+              ondrop="handleDrop(event)">
+              <div class="column-header">
+                <h2>Done</h2>
+                <div></div>
+              </div>
+              <div class="task-list">
+                <div class="no-tasks">No tasks Done</div>
+              </div>
+              <div class="task-container done" id="done-tasks"></div>
+            </div>
+          </div>
+        </div>
+        <div id="taskModal" class="modal">
+          <div class="modal-content">
+            <span class="close-button" onclick="closeTaskModal()"
+                >&times;</span
+              >
+            <div class="task-modal">
+              <h3 id="modalCategory" class="category-label"></h3>
+              <h4 class="modalTitle" id="modalTitle"></h4>
+              <p class="modalDescription" id="modalDescription"></p>
+              <p class="modalDueDate">
+                <strong>Due date:</strong> <span id="modalDueDate"></span>
+              </p>
+              <p class="modalPriority">
+                <strong>Priority:</strong> <span id="modalPriority"></span>
+              </p>
+              <p><strong>Assigned To:</strong></p>
+              <div id="modalAssignedUsers"></div>
+              <p><strong>Subtasks:</strong></p>
+              <div id="modalSubtasks"></div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero" id="hero">
+        <div class="addtask-overlay">
+          <div class="title-arrow">
+            <h1>Add Task</h1>
+            <button id="close-overlay" onclick="closeOverlay()"><img src="../Assets/Close.png" alt=""></button>
+          </div>
+          <div class="form-container">
+            <div class="form-left">
+              <div class="input-containers">
+                <p>Title<span class="span">*</span></p>
+                <input class="title-input" type="text" placeholder="Enter a title" id="title-input" onchange="clearTitleError()"/>
+                <div class="erorr-msg" id="title-error"></div>
+              </div>
+              <div class="input-containers">
+                <p>Description<span class="span">*</span></p>
+                <textarea class="description-input" placeholder="Enter a Description" id="description" onchange="clearDescriptionError()"></textarea>
+                <div class="erorr-msg description-error" id="description-error"></div>
+              </div>
+              <div class="input-containers">
+                <p>Assigned to</p>
+                <div onclick="openDropDownMenuUserOverlay(), addUserToTaskOverlay()" class="drop-down">
+                  <div>Select contacts to assign</div>
+                  <div>
+                    <img class="drop-down-arrow" id="drop-down-arrow-contacts-overlay" src="../Assets/arrow_drop_downaa (1).png" alt="Arrow down"/>
+                  </div>
+                </div>
+                <div class="contact-list-container-overlay" id="contact-listOverlay"></div>
+                <div id="addedUersOverlay"></div>
+              </div>
+            </div>
+            <hr />
+            <div class="form-right">
+              <div class="input-containers">
+                <p>Due date<span class="span">*</span></p>
+                <input class="date-input" type="date" id="date-input" onchange="clearDateError()"/>
+                <div class="erorr-msg" id="date-error"></div>
+              </div>
+              <div class="prio-container">
+                <p>Prio</p>
+                <div class="prio-btn-container">
+                  <button onclick="changeColorPrioBtnOverlay('urgent')" id="btn-urgent-overlay" class="btn-prio-urgent">Urgent<img id="urgent-img-overlay" src="../Assets/prio_urgent.png" alt="Urgent"/></button>
+                  <button onclick="changeColorPrioBtnOverlay('medium')" id="btn-medium-overlay" class="btn-prio-medium-overlay">Medium<img id="medium-img-overlay" src="../Assets/prio_medium.png" alt="Medium"/></button>
+                  <button onclick="changeColorPrioBtnOverlay('low')" id="btn-low-overlay" class="btn-prio-low">Low<img id="low-img-overlay" src="../Assets/prio_low.png" alt="Low"/></button>
+                </div>
+              </div>
+              <div class="input-containers" id="input-category">
+                <p>Category<span>*</span></p>
+                <div class="drop-down" onclick="openDropDownMenuCategory()">
+                  <div id="selected-category">Select task category</div>
+                    <img class="drop-down-arrow" id="drop-down" src="../Assets/arrow_drop_downaa (1).png" alt="Arrow down"/>
+                    <div class="erorr-msg category-error" id="category-error"></div>
+                </div>
+                <div class="category-options hidden" id="categorySelect">
+                  <div onclick="selectCategory('Technical Task')">
+                    Technical Task
+                  </div>
+                  <div onclick="selectCategory('User Story')">User Story</div>
+                </div>
+              </div>
+              <div class="input-containers">
+                <p>Subtasks</p>
+                <div class="subtask-container">
+                  <input oninput="toggleButtonVisibilityOverlay()" class="subtask-input" type="text" placeholder="Add new subtask" id="newSubtaskOverlay"/>
+                  <img onclick="toggleButtonVisibilityOverlay(true)" id="confirm-subtask-btn-overlay" class="plus-img" src="../Assets/Subtasks +.png" alt=""/>
+                  <button class="add-subtask" id="confirmButton-overlay" onclick="addSubtask()"><img src="../Assets/check_blue.png" alt="" /></button>
+                  <span class="linie-overlay" id="linie-overlay" onclick="cancelSubtaskOverlay()">|</span>
+                  <button class="cancle-subtask" id="cancelButton-overlay" onclick="cancelSubtaskOverlay()"><img src="../Assets/iconoir_cancel.png" alt="" /></button>
+                </div>
+                <div id="subtaskLabels" class="subtask-label-container-overlay"></div>
+                <p class="required">This field is required<span>*</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="add-clear-task">
+            <div>
+              <p>This field is required<span>*</span></p>
+            </div>
+            <div class="clear-addTask-container">
+              <button onclick="clearTask()" class="clear-btn">Clear <img src="../Assets/iconoir_cancel.png" alt=""/></button>
+              <button onclick="checkAddTaks()" class="creatTask-btn">Creat Task <img src="../Assets/check.png" alt=""/></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay-msg" id="add-task-msg">
+        <div class="msg-container">
+        <div class="msg-box" id="msgBox">You added task sucsessfuly</div>
+      </div>
+      </div>
+      <div id="nav-bar" w3-include-html="../HTML/nav-bar.html"></div>
+      <script src="../JS/template.js"></script>
+      <script src="../JS/add-task-overlay.js"></script>
+      <script src="../JS/add-task-overlay-subtask.js"></script>
+      <script src="../JS/add-task-overlay-prio.js"></script>
+      <script src="../JS/template-board.js"></script>
+      <link rel="stylesheet" href="../CSS/responsive-board.css"/>
+    </div>
+  </body>
+</html>

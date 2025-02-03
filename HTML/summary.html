@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="../Assets/favIcon.png" />
+
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../CSS/header.css" />
+  <link rel="stylesheet" href="../CSS/nav-bar.css" />
+  <link rel="stylesheet" href="../CSS/summary.css" />
+
+  <script src="../script.js"></script>
+  <script src="../JS/summary.js"></script>
+  <script src="../JS/nav-bar.js"></script>
+  <script src="../JS/header.js"></script>
+
+  <title>Summary</title>
+</head>
+
+<body id="body" onload="userCheck(), initSummary()">
+  <div id="frame">
+    <div id="main-container">
+      <div id="header" w3-include-html="../HTML/header.html"></div>
+      <div id="main-content">
+        <div class="hero">
+          <div class="info-regards">
+            <div class="title-info">
+              <div class="title-summary">
+                <h1>JOIN 360</h1>
+                <hr />
+                <h2>Key Metrics at a Glance</h2>
+                <hr class="title-underline" />
+              </div>
+              <div class="info">
+                <div class="info-todo">
+                  <a href="../HTML/board.html">
+                    <div class="todo-done">
+                      <div id="info-container-left" class="info-container">
+                        <div class="todo">
+                          <img class="pen-img" src="../Assets/pen.png" alt="" />
+                          <img class="hover-pen-img" src="../Assets/pen_hover.png" alt="" />
+                        </div>
+                        <div class="status">
+                          <h4 id="todoCount">1</h4>
+                          <h3>To-Do</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="../HTML/board.html">
+                    <div class="todo-done">
+                      <div id="info-container-right" class="info-container">
+                        <div>
+                          <img class="done-img" src="../Assets/done.png" alt="" />
+                          <img class="done-img-hover" src="../Assets/done_hover.png" alt="" />
+                        </div>
+                        <div class="status">
+                          <h4 id="doneCount">1</h4>
+                          <h3>Done</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <a href="../HTML/board.html">
+                  <div class="task-date-info" id="task-info">
+                  </div>
+                </a>
+                <div class="tasks-status-container">
+                  <a href="../HTML/board.html">
+                    <div id="task-status-left" class="task-status">
+                      <div>
+                        <h4 id="totalTaskCount">5</h4>
+                      </div>
+                      <div>
+                        <h3>Tasks in Board</h3>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="../HTML/board.html">
+                    <div id="task-status-center" class="task-status">
+                      <div>
+                        <h4 id="inProgressCount">2</h4>
+                      </div>
+                      <div>
+                        <h3>Tasks In Progress</h3>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="../HTML/board.html">
+                    <div id="task-status-right" class="task-status">
+                      <div>
+                        <h4 id="awaitFeedbackCount">2</h4>
+                      </div>
+                      <div>
+                        <h3>Awaiting Feedback</h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="regards" id="regardsUser"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="nav-bar" w3-include-html="../HTML/nav-bar.html"></div>
+    <div class="regards-mobile" id="regardsUserMobile"></div>
+    <script src="../JS/template.js"></script>
+  </div>
+</body>
+
+</html>

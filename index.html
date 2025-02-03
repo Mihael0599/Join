@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="./Assets/favIcon.png">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./CSS/login.css">
+  <script src="./JS/header.js"></script>
+</head>
+  
+  <title>Join</title>
+  <body id="body" onload="logOut(); init()">
+    <header>
+        <img class="login-logo" src="./Assets/Join_logo_blue.png" alt="">
+        <div class="signup-container">
+          <h3>Not a Join user?</h3>
+          <a class="signup-btn" href="./HTML/signup.html">Sign up</a>
+        </div>
+  </header>
+
+  <div class="animation" id="animation">
+    <img class="welcome-img" src="./Assets/Join_logo_big.png" alt="">
+    <img class="welcome-img-mobile" src="./Assets/Join_logo.png" alt="">
+  </div>
+
+  <div class="hero">
+    <div class="login-window">
+      <div class="login-title">
+      <h1>Log in</h1>
+      <hr width="88px" color="#29ABE2" size="3">
+    </div>
+    <div class="input-box">
+      <input class="input-test" type="email" name="" id="email" placeholder="Email">
+      <img class="input-img" src="./Assets/mail (1).png" alt="">
+      <div class="erorr-msg" id="email-error"></div>
+    </div>
+    <div class="input-box">
+      <input oninput="changePasswordImg()" type="password" name="" id="password" placeholder="Password">
+      <img class="input-img" onclick="showPassword()" id="show-password-img" src="./Assets/lock.png" alt="">
+      <div class="erorr-msg" id="password-error"></div>
+    </div>
+    <div class="login-signup-container">
+      <button onclick="userLogIn()" class="login-btn">Log in</button>
+      <button onclick="guestLogin()" class="guest-login">Guest Log in</button>
+    </div>
+    </div>
+    <div class="signup-container-mobile">
+      <h3>Not a Join user?</h3>
+      <a class="signup-btn" href="./HTML/signup.html">Sign up</a>
+    </div>
+  <footer>
+    <a id="login-click-privacy" class="color-on-click-hover" href="./HTML/privacy-policy.html">Privacy Policy</a>
+    <a id="login-click-legal" class="color-on-click-hover" href="./HTML/legal-notice.html">Legal notice</a>
+  </footer>
+</div>
+<script src="./script.js"></script>
+<script src="./JS/login.js"></script>
+<script src="./JS/template.js"></script>
+<script src="./JS/nav-bar.js"></script>
+  </body>
+</html>
