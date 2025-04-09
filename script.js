@@ -197,7 +197,7 @@ async function includeHTML() {
 async function loadContent(page) {
   console.log(page);
   let element = document.getElementById("main-content");
-  let resp = await fetch("./HTML/" + page + ".html");
+  let resp = await fetch("/Join/HTML/" + page + ".html");
   if (resp.ok) {
     element.innerHTML = await resp.text();
   } else {
