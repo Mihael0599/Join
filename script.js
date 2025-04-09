@@ -1,4 +1,4 @@
-const BASE_URL = "https://join-405-43178-default-rtdb.europe-west1.firebasedatabase.app/";
+const BASE_URL = "https://join-5e0e2-default-rtdb.europe-west1.firebasedatabase.app/";
 let loadedContacts = [];
 let loadedTasks = [];
 let allTasks = {};
@@ -121,8 +121,8 @@ function saveTasksInLocalStorage(loadedTasks) {
 function changePasswordImg() {
   if (password && password.value) {
     showPasswordImg.src = isPasswordVisible 
-      ? "../Assets/visibility.png" 
-      : "../Assets/visibility_off.png";
+      ? "/Assets/visibility.png" 
+      : "/Assets/visibility_off.png";
     showPasswordImg.style.cursor = "pointer";
   } else if (showPasswordImg) {
     showPasswordImg.src = "../Assets/lock.png";
@@ -136,8 +136,8 @@ function changePasswordImg() {
 function changeRepeatPasswordImg() {
   if (repeatPassword && repeatPassword.value) {
     showRepeatPasswordImg.src = isRepeatPasswordVisible 
-      ? "../Assets/visibility.png" 
-      : "../Assets/visibility_off.png";
+      ? "/Assets/visibility.png" 
+      : "/Assets/visibility_off.png";
     showRepeatPasswordImg.style.cursor = "pointer";
   } else if (showRepeatPasswordImg) {
     showRepeatPasswordImg.src = "../Assets/lock.png";
@@ -153,8 +153,8 @@ function showPassword() {
     isPasswordVisible = !isPasswordVisible;
     password.type = isPasswordVisible ? "text" : "password";
     showPasswordImg.src = isPasswordVisible 
-      ? "../Assets/visibility.png" 
-      : "../Assets/visibility_off.png";
+      ? "/Assets/visibility.png" 
+      : "/Assets/visibility_off.png";
   }
 }
 
@@ -166,8 +166,8 @@ function showRepeatPassowrd() {
     isRepeatPasswordVisible = !isRepeatPasswordVisible;
     repeatPassword.type = isRepeatPasswordVisible ? "text" : "password";
     showRepeatPasswordImg.src = isRepeatPasswordVisible 
-      ? "../Assets/visibility.png" 
-      : "../Assets/visibility_off.png";
+      ? "/Assets/visibility.png" 
+      : "/Assets/visibility_off.png";
   }
 }
 
