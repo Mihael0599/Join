@@ -1,4 +1,4 @@
-const BASE_URL = "https://join-405-43178-default-rtdb.europe-west1.firebasedatabase.app/";
+const BASE_URL = "https://join-5e0e2-default-rtdb.europe-west1.firebasedatabase.app/";
 let loadedContacts = [];
 let loadedTasks = [];
 let allTasks = {};
@@ -121,11 +121,11 @@ function saveTasksInLocalStorage(loadedTasks) {
 function changePasswordImg() {
   if (password && password.value) {
     showPasswordImg.src = isPasswordVisible 
-      ? "../Assets/visibility.png" 
-      : "../Assets/visibility_off.png";
+      ? "/Join/Assets/visibility.png" 
+      : "/Join/Assets/visibility_off.png";
     showPasswordImg.style.cursor = "pointer";
   } else if (showPasswordImg) {
-    showPasswordImg.src = "../Assets/lock.png";
+    showPasswordImg.src = "/Join/Assets/lock.png";
     showPasswordImg.style.cursor = "default";
   }
 }
@@ -136,11 +136,11 @@ function changePasswordImg() {
 function changeRepeatPasswordImg() {
   if (repeatPassword && repeatPassword.value) {
     showRepeatPasswordImg.src = isRepeatPasswordVisible 
-      ? "../Assets/visibility.png" 
-      : "../Assets/visibility_off.png";
+      ? "/Join/Assets/visibility.png" 
+      : "/Join/Assets/visibility_off.png";
     showRepeatPasswordImg.style.cursor = "pointer";
   } else if (showRepeatPasswordImg) {
-    showRepeatPasswordImg.src = "../Assets/lock.png";
+    showRepeatPasswordImg.src = "/Join/Assets/lock.png";
     showRepeatPasswordImg.style.cursor = "default";
   }
 }
@@ -153,8 +153,8 @@ function showPassword() {
     isPasswordVisible = !isPasswordVisible;
     password.type = isPasswordVisible ? "text" : "password";
     showPasswordImg.src = isPasswordVisible 
-      ? "../Assets/visibility.png" 
-      : "../Assets/visibility_off.png";
+      ? "/Join/Assets/visibility.png" 
+      : "/Join/Assets/visibility_off.png";
   }
 }
 
@@ -166,8 +166,8 @@ function showRepeatPassowrd() {
     isRepeatPasswordVisible = !isRepeatPasswordVisible;
     repeatPassword.type = isRepeatPasswordVisible ? "text" : "password";
     showRepeatPasswordImg.src = isRepeatPasswordVisible 
-      ? "../Assets/visibility.png" 
-      : "../Assets/visibility_off.png";
+      ? "/Join/Assets/visibility.png" 
+      : "/Join/Assets/visibility_off.png";
   }
 }
 
@@ -197,7 +197,7 @@ async function includeHTML() {
 async function loadContent(page) {
   console.log(page);
   let element = document.getElementById("main-content");
-  let resp = await fetch("./HTML/" + page + ".html");
+  let resp = await fetch("./Join" + "./HTML/" + page + ".html");
   if (resp.ok) {
     element.innerHTML = await resp.text();
   } else {
