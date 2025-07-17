@@ -23,7 +23,7 @@ async function userLogIn() {
   if (user) {
     if (user.password === password.value) {
       localStorage.setItem("loggedInUser", JSON.stringify(user));
-      window.location.href = "../HTML/summary.html";
+      window.location.href = "/Join/HTML/summary.html";
 
       email.value = "";
       password.value = "";

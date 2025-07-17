@@ -112,20 +112,19 @@ function saveTasksInLocalStorage(loadedTasks) {
   localStorage.setItem("todo",JSON.stringify(loadedTasks[0]["-OHEHGcS4ouKKz4lJ0nr"].todo));
   localStorage.setItem("in-progress",JSON.stringify(loadedTasks[0]["-OHEHGcS4ouKKz4lJ0nr"].inProgress));
   localStorage.setItem("done",JSON.stringify(loadedTasks[0]["-OHEHGcS4ouKKz4lJ0nr"].done));
-  console.log(loadedTasks[0]["-OHEHGcS4ouKKz4lJ0nr"].awaitFeedback);
 }
 
 /**
  * Ändert das Symbol zum Anzeigen des Passworts, je nachdem, ob das Passwort-Feld gefüllt ist oder nicht.
  */
-function changePasswordImg() {
+function changePasswordImg(imagePath) {
   if (password && password.value) {
     showPasswordImg.src = isPasswordVisible 
-      ? "/Assets/visibility.png" 
-      : "/Assets/visibility_off.png";
+      ? `${imagePath}visibility.png` 
+      : `${imagePath}visibility_off.png`;
     showPasswordImg.style.cursor = "pointer";
   } else if (showPasswordImg) {
-    showPasswordImg.src = "../Assets/lock.png";
+    showPasswordImg.src = `${imagePath}lock.png`;
     showPasswordImg.style.cursor = "default";
   }
 }
@@ -136,8 +135,8 @@ function changePasswordImg() {
 function changeRepeatPasswordImg() {
   if (repeatPassword && repeatPassword.value) {
     showRepeatPasswordImg.src = isRepeatPasswordVisible 
-      ? "/Assets/visibility.png" 
-      : "/Assets/visibility_off.png";
+      ? "../Assets/visibility.png" 
+      : "../Assets/visibility_off.png";
     showRepeatPasswordImg.style.cursor = "pointer";
   } else if (showRepeatPasswordImg) {
     showRepeatPasswordImg.src = "../Assets/lock.png";
@@ -148,13 +147,13 @@ function changeRepeatPasswordImg() {
 /**
  * Zeigt das Passwort an oder versteckt es basierend auf dem aktuellen Zustand des Passwort-Felds.
  */
-function showPassword() {
+function showPassword(imagePath) {
   if (password && password.value.length >= 1) {
     isPasswordVisible = !isPasswordVisible;
     password.type = isPasswordVisible ? "text" : "password";
     showPasswordImg.src = isPasswordVisible 
-      ? "/Assets/visibility.png" 
-      : "/Assets/visibility_off.png";
+      ? `${imagePath}visibility.png` 
+      : `${imagePath}visibility_off.png`;
   }
 }
 
@@ -166,8 +165,8 @@ function showRepeatPassowrd() {
     isRepeatPasswordVisible = !isRepeatPasswordVisible;
     repeatPassword.type = isRepeatPasswordVisible ? "text" : "password";
     showRepeatPasswordImg.src = isRepeatPasswordVisible 
-      ? "/Assets/visibility.png" 
-      : "/Assets/visibility_off.png";
+      ? "../Assets/visibility.png" 
+      : "../Assets/visibility_off.png";
   }
 }
 
