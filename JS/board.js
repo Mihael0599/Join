@@ -149,7 +149,7 @@ function searchFromSearchTaskInput() {
       ? searchInput.value.trim().toLowerCase()
       : "";
   filterTasksBySearch(searchText);
-  ["todo", "in-progress", "await-feedback", "done"].forEach(
+  ["triage","todo", "in-progress", "await-feedback", "done"].forEach(
     updateTaskVisibilityById
   );
 }
@@ -165,7 +165,7 @@ function searchFromSearchInput() {
       ? searchInput.value.trim().toLowerCase()
       : "";
   filterTasksBySearch(searchText);
-  ["todo", "in-progress", "await-feedback", "done"].forEach(
+  ["triage", "todo", "in-progress", "await-feedback", "done"].forEach(
     updateTaskVisibilityById
   );
 }
@@ -175,7 +175,7 @@ function searchFromSearchInput() {
  * Loads tasks when the page loads.
  */
 window.addEventListener("load", function () {
-  ["todo", "in-progress", "await-feedback", "done"].forEach(loadTasks);
+  ["triage", "todo", "in-progress", "await-feedback", "done"].forEach(loadTasks);
 });
 
 
@@ -374,7 +374,7 @@ function updateTaskElement(taskId, task) {
  * @returns {string|null} - Column ID or null.
  */
 function findTaskColumn(taskId) {
-  const columns = ["todo", "in-progress", "await-feedback", "done"];
+  const columns = ["triage", "todo", "in-progress", "await-feedback", "done"];
   for (let column of columns) {
     let tasks = JSON.parse(localStorage.getItem(column)) || [];
     if (tasks.some((task) => task.id === taskId)) {
